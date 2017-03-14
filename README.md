@@ -1,25 +1,24 @@
-# generator-ycs 
+# generator-yckoa 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> An Express Restful API Server
+> A Restful API Server based on Koajs
 
 ## Dependencies
 
 - [MongoDB](https://www.mongodb.com)
-- [GraphicsMagick](http://www.graphicsmagick.org) *(optional)*
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-ycs using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-yckoa using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-ycs
+npm install -g generator-yckoa
 ```
 
 Then generate your new project:
 
 ```bash
-yo ycs [appName]
+yo yckoa [appName]
 ```
 
 ## Commands
@@ -30,13 +29,25 @@ yo ycs [appName]
 ## Initialize App
 
 ```bash
-yo ycs [appName]
+mkdir helloWorld
+cd helloWorld
+yo yckoa [appName]
+```
+
+## Install Dependencies
+
+```bash
+yarn install
+```
+or
+```bash
+npm install
 ```
 
 ## Add API
 
 ```bash
-yo ycs:api [apiName] [endpoint=/xxx/xxx] [--file] [--image]
+yo yckoa:api [apiName] [endpoint=/xxx/xxx] [--socket] [--image]
 ```
 
 
@@ -53,11 +64,11 @@ yo ycs:api [apiName] [endpoint=/xxx/xxx] [--file] [--image]
 MIT © [Yu Chen]()
 
 
-[npm-image]: https://badge.fury.io/js/generator-ycs.svg
-[npm-url]: https://npmjs.org/package/generator-ycs
-[travis-image]: https://travis-ci.org/kuyoonjo/generator-ycs.svg?branch=master
-[travis-url]: https://travis-ci.org/kuyoonjo/generator-ycs
-[daviddm-image]: https://david-dm.org/kuyoonjo/generator-ycs.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/kuyoonjo/generator-ycs
-[coveralls-image]: https://coveralls.io/repos/kuyoonjo/generator-ycs/badge.svg
-[coveralls-url]: https://coveralls.io/r/kuyoonjo/generator-ycs
+[npm-image]: https://badge.fury.io/js/generator-yckoa.svg
+[npm-url]: https://npmjs.org/package/generator-yckoa
+[travis-image]: https://travis-ci.org/kuyoonjo/generator-yckoa.svg?branch=master
+[travis-url]: https://travis-ci.org/kuyoonjo/generator-yckoa
+[daviddm-image]: https://david-dm.org/kuyoonjo/generator-yckoa.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/kuyoonjo/generator-yckoa
+[coveralls-image]: https://coveralls.io/repos/kuyoonjo/generator-yckoa/badge.svg
+[coveralls-url]: https://coveralls.io/r/kuyoonjo/generator-yckoa
