@@ -1,6 +1,6 @@
 {
   "name": "generator-yckoa",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Restful API Server based on Koajs",
   "homepage": "",
   "author": {
