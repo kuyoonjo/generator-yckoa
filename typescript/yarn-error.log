@@ -1,0 +1,73 @@
+Arguments: 
+  /Users/yuchen/.nvm/versions/node/v7.7.2/bin/node /usr/local/bin/yarn install --force
+
+PATH: 
+  /Users/yuchen/.nvm/versions/node/v7.7.2/bin:/usr/local/heroku/bin:/usr/local/Cellar/android-sdk/24.4.1_1/tools:/usr/local/Cellar/android-sdk/24.4.1_1/platform-tools:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/heroku/bin:/usr/local/Cellar/android-sdk/24.4.1_1/tools:/usr/local/Cellar/android-sdk/24.4.1_1/platform-tools:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin
+
+Yarn version: 
+  0.21.3
+
+Node version: 
+  7.7.2
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "yckoa",
+    "version": "1.0.0",
+    "description": "A Node.js Server Generator",
+    "main": "server/index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Yu Chen",
+    "license": "ISC",
+    "dependencies": {
+      "koa": "^2.1.0",
+      "koa-better-body": "^3.0.2",
+      "qs": "^6.4.0"
+    },
+    "devDependencies": {
+      "gulp": "^3.9.1",
+      "gulp-add-src": "^0.2.0",
+      "gulp-clean": "^0.3.2",
+      "gulp-clean-dest": "^0.1.1",
+      "gulp-concat": "^2.6.0",
+      "gulp-file-cache": "0.0.1",
+      "gulp-filter": "^4.0.0",
+      "gulp-header": "^1.8.8",
+      "gulp-plumber": "^1.1.0",
+      "gulp-remove-lines": "^0.1.0",
+      "gulp-sourcemaps": "^1.6.0",
+      "gulp-typescript": "^3.1.4",
+      "gulp-util": "^3.0.7",
+      "gulp-watch": "^4.3.9",
+      "merge2": "^1.0.2",
+      "nodemon": "^1.10.2",
+      "run-sequence": "^1.2.2",
+      "stream-combiner2": "^1.1.1",
+      "through2": "^2.0.1",
+      "typescript": "^2.2.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: registry.npmjs.org/koa: Invalid URI "registry.npmjs.org/koa"
+      at Request.init (/usr/local/lib/node_modules/yarn/node_modules/request/request.js:276:31)
+      at new Request (/usr/local/lib/node_modules/yarn/node_modules/request/request.js:130:8)
+      at request (/usr/local/lib/node_modules/yarn/node_modules/request/index.js:54:10)
+      at RequestManager.execute (/usr/local/lib/node_modules/yarn/lib/util/request-manager.js:354:17)
+      at RequestManager.shiftQueue (/usr/local/lib/node_modules/yarn/lib/util/request-manager.js:381:10)
+      at Promise (/usr/local/lib/node_modules/yarn/lib/util/request-manager.js:166:12)
+      at RequestManager.request (/usr/local/lib/node_modules/yarn/lib/util/request-manager.js:164:21)
+      at NpmRegistry.request (/usr/local/lib/node_modules/yarn/lib/registries/npm-registry.js:112:32)
+      at /usr/local/lib/node_modules/yarn/lib/resolvers/registries/npm-resolver.js:111:54
+      at Generator.next (<anonymous>)
