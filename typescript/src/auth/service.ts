@@ -55,14 +55,13 @@ export function isAuthenticated() {
  * Checks if the user role meets the minimum requirements of the route
  */
 export function hasRole(roleRequired) {
-  if (!roleRequired) {
-    throw new Error('Required role needs to be set')
-  }
-
   return compose([
-    isAuthenticated,
+    isAuthenticated(),
     async (ctx: Utils.BetterContext, next) => {
       try {
+        if (!roleRequired) {
+          throw new Error('Required role needs to be set')
+        }
         if (!!~ctx.user.roles.indexOf(roleRequired) || !!~ctx.user.roles.indexOf('super')) {
           await next();
         } else {
@@ -79,18 +78,13 @@ export function hasRole(roleRequired) {
  * Checks if the user role meets the minimum requirements of the route or matches req.params.id
  */
 export function OwnsOrHasRole(roleRequired, model, field) {
-  if (!roleRequired) {
-    throw new Error('Required role needs to be set')
-  }
-
-  if (!roleRequired) {
-    throw new Error('Required role needs to be set')
-  }
-
   return compose([
-    isAuthenticated,
+    isAuthenticated(),
     async (ctx: Utils.BetterContext, next) => {
       try {
+        if (!roleRequired) {
+          throw new Error('Required role needs to be set')
+        }
         if (!!~ctx.user.roles.indexOf(roleRequired) || !!~ctx.user.roles.indexOf('super')) {
           ctx.user.hasRole = true;
         }
