@@ -56,8 +56,7 @@ module.exports = yeoman.Base.extend({
       '.gitignore',
       'gulpfile.js',
       'tsconfig.json',
-      'package.json',
-      'yarn.lock'
+      'package.json'
     ];
 
     templates = [
@@ -65,7 +64,7 @@ module.exports = yeoman.Base.extend({
       'src/config/mongodb.ts'
     ]
 
-    self.sourceRoot(path.join(self.templatePath(), '../../../typescript'));
+    // self.sourceRoot(path.join(self.templatePath(), '../../../typescript'));
 
     statics.forEach(function (glob) {
       self.fs.copy(
@@ -86,6 +85,6 @@ module.exports = yeoman.Base.extend({
 
   install: function () {
     this.log(chalk.green('Everything is ready!'));
-    this.log(chalk.yellow('Run') + ' yarn install ' + chalk.yellow('to install dependencies.'));
+    this.log(chalk.yellow('Run') + ' yarn ' + chalk.yellow('or') + ' npm install ' + chalk.yellow('to install dependencies.'));
   }
 });
