@@ -18,5 +18,5 @@ export const domain = process.env.DOMAIN || `localhost:${port}`
 
 // Secret for session, you will want to change this and make it an environment variable
 export const secrets = {
-  session: '<%= appName %>-secret'
+  session: 'helloWorld-secret'
 }

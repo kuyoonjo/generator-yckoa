@@ -25,8 +25,9 @@ export function mongooseImages(schema: mongoose.Schema, options: mongooseImagesO
           let tmp = self[path][0].path;
           let meta = await sharp(tmp).metadata();
           let filePath = `${dir}/${path}`;
-          await del(`${dir}/${path}.*`);
-          await fsp.rename(tmp, filePath + '.' + meta.format);
+          await del(`${dir}/${path}.*`, { force: true });
+          await fsp.copy(tmp, filePath + '.' + meta.format);
+          await del(tmp, { force: true });
           let imagePath = `${self._id}/${path}.${meta.format}`;
           let url;
           if(options.generateUrl) {

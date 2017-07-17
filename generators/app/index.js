@@ -53,7 +53,7 @@ module.exports = yeoman.Base.extend({
       'src',
       'static',
       'swagger-ui',
-      '.gitignore',
+      // '.gitignore',
       'gulpfile.js',
       'tsconfig.json',
       'package.json'

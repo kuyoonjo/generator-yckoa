@@ -6,8 +6,8 @@ import * as compose from 'koa-compose';
 import Auth from './model';
 import * as Utils from '../components/utils';
 
-export function signToken(id, roles) {
-  return jwt.sign({ _id: id, roles: roles }, config.secrets.session, {
+export function signToken(id, roles, providers?) {
+  return jwt.sign({ _id: id, roles: roles, providers: providers }, config.secrets.session, {
     expiresIn: config.auth.expires
   })
 }
@@ -38,6 +38,7 @@ async function validateUser(ctx: Utils.BetterContext, next) {
     if (!user) {
       throw new Utils.EntityNotFoundError('Invalid user id');
     };
+    ctx.user = user;
     await next();
   } catch (e) {
     Utils.handleError(ctx, e);
@@ -55,13 +56,14 @@ export function isAuthenticated() {
  * Checks if the user role meets the minimum requirements of the route
  */
 export function hasRole(roleRequired) {
+  if (!roleRequired) {
+    throw new Error('Required role needs to be set')
+  }
+
   return compose([
     isAuthenticated(),
     async (ctx: Utils.BetterContext, next) => {
       try {
-        if (!roleRequired) {
-          throw new Error('Required role needs to be set')
-        }
         if (!!~ctx.user.roles.indexOf(roleRequired) || !!~ctx.user.roles.indexOf('super')) {
           await next();
         } else {
@@ -78,13 +80,18 @@ export function hasRole(roleRequired) {
  * Checks if the user role meets the minimum requirements of the route or matches req.params.id
  */
 export function OwnsOrHasRole(roleRequired, model, field) {
+  if (!roleRequired) {
+    throw new Error('Required role needs to be set')
+  }
+
+  if (!roleRequired) {
+    throw new Error('Required role needs to be set')
+  }
+
   return compose([
     isAuthenticated(),
     async (ctx: Utils.BetterContext, next) => {
       try {
-        if (!roleRequired) {
-          throw new Error('Required role needs to be set')
-        }
         if (!!~ctx.user.roles.indexOf(roleRequired) || !!~ctx.user.roles.indexOf('super')) {
           ctx.user.hasRole = true;
         }
@@ -102,6 +109,7 @@ export function OwnsOrHasRole(roleRequired, model, field) {
         if (!ctx.user.hasRole && !ctx.user.owns) {
           throw new Utils.PermissonError('you do not have sufficient privilege to perform this action');
         }
+        await next();
       } catch (e) {
         Utils.handleError(ctx, e);
       }
